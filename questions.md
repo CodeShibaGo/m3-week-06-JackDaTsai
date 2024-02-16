@@ -95,6 +95,7 @@ for row in result:
 
 - [文件](https://werkzeug.palletsprojects.com/en/3.0.x/utils/)
 
+```
 # user_model.py
 from werkzeug.security import generate_password_hash, check_password_hash
 
