@@ -77,19 +77,28 @@ from sqlalchemy import text
 # 創建一個原始的 SQL 查詢
 query = text("SELECT * FROM users")
 
-# 執行 SQL 查詢
-result = 
-
-# 逐行列印結果
-for row in result:
-    print(row)
+with app.app_context():
+    result = db.session.execute(query)
+    # 第 1 種方法
+    print(result.fetchall())
+    # 逐行列印結果
+    for row in result:
+        print(row)
 ```
 
 ## Q: 如何用土炮的方式建立 Table？ #126
 
 ```
-
-```
+with app.app_context(): 
+    sql = text("""
+    CREATE TABLE users (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        username VARCHAR(50) NOT NULL,
+        password VARCHAR(50) NOT NULL
+    )
+    """)
+    db.session.execute(sql)
+    db.session.commit()
 
 ## Q: 什麼是密碼雜湊？如何使用 Python 實現？ #129
 
