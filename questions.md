@@ -97,6 +97,7 @@ with app.app_context():
     """)
     db.session.execute(sql)
     db.session.commit()
+```
 
 ## Q: 什麼是密碼雜湊？如何使用 Python 實現？ #129
 
