@@ -50,7 +50,6 @@ pip install Flask-Migrate
 ```
 
 ```
-# app/__init__.py
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
@@ -74,7 +73,6 @@ flask db upgrade
 ```
 from sqlalchemy import text
 
-# 創建一個原始的 SQL 查詢
 query = text("SELECT * FROM users")
 
 with app.app_context():
@@ -105,7 +103,6 @@ with app.app_context():
 - [文件](https://werkzeug.palletsprojects.com/en/3.0.x/utils/)
 
 ```
-# user_model.py
 from werkzeug.security import generate_password_hash, check_password_hash
 
 class User:
@@ -118,13 +115,10 @@ class User:
 ```
 
 ```
-# main.py
 from user_model import User
 
-# Create a new user with a hashed password
 new_user = User('john_doe', 's3cr3t')
 
-# Verify the password for the user
 print(new_user.verify_password('s3cr3t'))  # Should print True
 print(new_user.verify_password('wrong_password'))  # Should print False
 ```
